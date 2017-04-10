@@ -1,4 +1,4 @@
-package com.wearenicecorp.gymapp;
+package com.wearenicecorp.gymapp.model;
 
 /**
  * Created by JulioAndres on 3/27/17.

@@ -1,6 +1,8 @@
-package com.wearenicecorp.gymapp;
+package com.wearenicecorp.gymapp.activities;
 
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +13,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.wearenicecorp.gymapp.adapters.TrainingAdapter;
+import com.wearenicecorp.gymapp.network.BackEndAPI;
+import com.wearenicecorp.gymapp.network.BackEndClient;
+import com.wearenicecorp.gymapp.model.Training;
+import com.wearenicecorp.gymapp.model.TrainingDTO;
+import com.wearenicecorp.gymapp.R;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -28,11 +36,11 @@ import retrofit2.Retrofit;
 public class TrainingsActivity extends AppCompatActivity implements Callback<TrainingDTO> {
 
     private static final String getTrainingURL = "http://wearenicecorp.com/apps/gymapp/entrenamientos.php";
+    public static final int NEW_TRAINING_REQUEST_CODE = 1;
 
     ListView trainingsListView;
     ArrayList<Training> entrenamientos = new ArrayList<>();
     private TrainingAdapter trainingsAdapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +49,20 @@ public class TrainingsActivity extends AppCompatActivity implements Callback<Tra
 
         trainingsListView = (ListView) findViewById(R.id.trainingsListView);
 
-        trainingsAdapter = new TrainingAdapter();
+        trainingsAdapter = new TrainingAdapter(entrenamientos, TrainingsActivity.this);
         trainingsListView.setAdapter(trainingsAdapter);
 
-        //getTrainings();
+        FloatingActionButton newTrainingButton = (FloatingActionButton) findViewById(R.id.newTrainingButton);
+        newTrainingButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(TrainingsActivity.this, NewTrainingActivity.class);
+                startActivityForResult(intent, NEW_TRAINING_REQUEST_CODE);
+            }
+        });
+
+        //getTrainings(); Descomentar esto para usar AsyncTask
         getTrainingsWithLibrary();
     }
 
@@ -77,40 +95,6 @@ public class TrainingsActivity extends AppCompatActivity implements Callback<Tra
     public void onFailure(Call<TrainingDTO> call, Throwable t) {
         (findViewById(R.id.progressBar)).setVisibility(View.GONE);
         Toast.makeText(TrainingsActivity.this,"Error",Toast.LENGTH_LONG).show();
-    }
-
-    private class TrainingAdapter extends BaseAdapter {
-
-        @Override
-        public int getCount() {
-            return entrenamientos.size();
-        }
-
-        @Override
-        public Training getItem(int pos) {
-            return entrenamientos.get(pos);
-        }
-
-        @Override
-        public long getItemId(int i) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-
-            Training training = getItem(position);
-
-            View row = getLayoutInflater().inflate(R.layout.fila_training, parent, false);
-
-            TextView nombreTextView = (TextView)row.findViewById(R.id.textViewFilaNombreTraining);
-            nombreTextView.setText(training.getNombre());
-
-            TextView descripcionTextView = (TextView)row.findViewById(R.id.textViewFilaDescTraining);
-            descripcionTextView.setText(training.getDescripcion());
-
-            return row;
-        }
     }
 
     private class GetTrainingsAsync extends AsyncTask<String, Integer, ArrayList<Training>> {

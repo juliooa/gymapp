@@ -1,4 +1,4 @@
-package com.wearenicecorp.gymapp;
+package com.wearenicecorp.gymapp.network;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;

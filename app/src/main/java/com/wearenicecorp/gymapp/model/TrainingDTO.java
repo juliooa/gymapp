@@ -1,4 +1,4 @@
-package com.wearenicecorp.gymapp;
+package com.wearenicecorp.gymapp.model;
 
 import java.util.ArrayList;
 

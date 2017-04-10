@@ -1,8 +1,9 @@
-package com.wearenicecorp.gymapp;
+package com.wearenicecorp.gymapp.network;
+
+import com.wearenicecorp.gymapp.model.TrainingDTO;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.POST;
 
 /**
  * Created by JulioAndres on 4/26/16.
