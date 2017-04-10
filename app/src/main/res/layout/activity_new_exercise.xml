@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/editTextExerciseName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Nombre"
+        android:textColor="#FFF"
+        android:textColorHint="#AAA"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Grupo muscular"
+        android:textColor="#FFF" />
+
+    <Spinner
+        android:id="@+id/spinnerMuscleGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="¿Cómo mides el ejercicio?"
+        android:textColor="#FFF" />
+
+    <RadioGroup
+        android:id="@+id/exerciseMesureType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
+
+        <RadioButton
+            android:id="@+id/radioButtonRepetitions"
+            android:layout_width="match_parent"
+            android:textColor="#FFF"
+            android:layout_height="wrap_content"
+            android:text="Repeticiones" />
+
+        <RadioButton
+            android:id="@+id/radioButtonTime"
+            android:layout_width="match_parent"
+            android:textColor="#FFF"
+            android:layout_height="wrap_content"
+            android:text="Tiempo" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/saveExerciseButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#3DB57F"
+        android:text="Guardar Ejercicio"
+        android:textColor="#FFFFFF" />
+</LinearLayout>
