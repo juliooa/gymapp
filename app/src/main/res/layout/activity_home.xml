@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.wearenicecorp.gymapp.HomeActivity"
+    tools:context="com.wearenicecorp.gymapp.activities.HomeActivity"
     android:orientation="vertical">
 
     <LinearLayout
@@ -12,8 +12,9 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/imageAvatar"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="20dp"
@@ -28,9 +29,20 @@
     </LinearLayout>
 
     <ListView
+        android:id="@+id/trainingsHistoryListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"/>
+    <TextView
+        android:id="@+id/empty_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:textColor="#FFF"
+        android:textSize="16sp"
+        android:layout_margin="30dp"
+        android:text="No tienes entrenamientos registrados. Empieza vamoooos!!" />
 
     <Button
         android:id="@+id/startButton"
