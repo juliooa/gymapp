@@ -1,10 +1,14 @@
 package com.wearenicecorp.gymapp.model;
 
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
 /**
  * Created by JulioAndres on 4/10/17.
  */
 
-public class Exercise {
+public class Exercise implements Serializable {
 
     public static final int MESURE_SETS = 1;
     public static final int MESURE_TIME = 2;

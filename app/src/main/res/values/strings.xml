@@ -1,4 +1,15 @@
 <resources>
     <string name="app_name">GymApp</string>
     <string name="title_activity_trainings2">TrainingsActivity2</string>
+
+    <string-array name="muscular_groups">
+        <item>Pectoral</item>
+        <item>Dorsal</item>
+        <item>Cuádriceps</item>
+        <item>Biceps</item>
+        <item>Tríceps</item>
+        <item>Hombros</item>
+        <item>Abdominales</item>
+    </string-array>
+    <string name="title_activity_gyms">Gimnasios cercanos</string>
 </resources>

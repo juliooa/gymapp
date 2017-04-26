@@ -28,6 +28,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#888" />
+
     <TextView
         android:textColor="#FFF"
         android:layout_margin="10dp"
@@ -35,19 +40,35 @@
         android:layout_height="wrap_content"
         android:text="Ejercicios" />
 
-    <ListView
-        android:id="@+id/exercisesListView"
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1" />
 
-    <Button
-        android:layout_gravity="right"
-        android:layout_margin="15dp"
-        android:id="@+id/addExerciseButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="+ Ejercicio" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:visibility="visible"
+            android:layout_gravity="left"
+            android:layout_margin="15dp"
+            android:id="@+id/backToList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="volver" />
+
+        <Button
+            android:layout_alignParentRight="true"
+            android:layout_gravity="right"
+            android:layout_margin="15dp"
+            android:id="@+id/addExerciseButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+ Ejercicio" />
+
+    </RelativeLayout>
 
     <Button
         android:id="@+id/saveTrainingButton"
@@ -55,5 +76,6 @@
         android:textColor="#FFFFFF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Guardar Entrenamiento"/>
+        android:text="Guardar Entrenamiento" />
+
 </LinearLayout>

@@ -7,8 +7,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import com.wearenicecorp.gymapp.R;
 import com.wearenicecorp.gymapp.database.AppDatabaseHelper;
@@ -35,6 +37,11 @@ public class NewExerciseActivity extends AppCompatActivity {
                 finish();
             }
         });
+        Spinner muscularGroupSpinner = (Spinner) findViewById(R.id.spinnerMuscleGroup);
+        ArrayAdapter<CharSequence> adapter =
+                ArrayAdapter.createFromResource(this,R.array.muscular_groups, R.layout.spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        muscularGroupSpinner.setAdapter(adapter);
     }
 
     private void saveExerciseOnDataBase() {
