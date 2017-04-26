@@ -9,6 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutCompat;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -49,5 +52,24 @@ public class HomeActivity extends AppCompatActivity {
         trainingsHistoryListView = (ListView) findViewById(R.id.trainingsHistoryListView);
         trainingsHistoryListView.setEmptyView(findViewById(R.id.empty_list));
         trainingsHistoryListView.setAdapter(new HistoryTrainingsAdapter());
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_home, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_gyms:
+                Intent intent = new Intent(HomeActivity.this, GymsActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
